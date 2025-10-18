@@ -1,5 +1,5 @@
 
-# 🪄 Profile Card — HNG Frontend Wizards (Stage 0)
+# 🪄 Profile Card — HNG Frontend Project (Stage 0)
 
 A clean, responsive, and accessible **Profile Card** built with **semantic HTML**, **modern CSS**, and a sprinkle of **vanilla JavaScript**.  
 This project was created for **HNG Stage 0** as part of the Frontend Wizards track.  
@@ -10,7 +10,7 @@ It includes all required data-testid attributes for automated testing, follows a
 
 ## 🌍 Live Demo
 
-🔗 **Live URL:** [https://your-live-link.netlify.app](https://your-live-link.netlify.app)
+🔗 **Live URL:** [https://jaimzh.github.io/HNG-stage0-frontend-profile-card/](https://jaimzh.github.io/HNG-stage0-frontend-profile-card/)
 
 ---
 ## 🧩 Features
