@@ -20,7 +20,9 @@ It now includes **About Me** and **Contact** pages while keeping the **Profile C
 
   
 
-🔗 **Live URL:** [https://jaimzh.github.io/HNG-stage1-frontend-profile-card/](https://jaimzh.github.io/HNG-stage1-frontend-profile-card/)
+🔗 **Live URL:** [https://jaimzh.github.io/HNG-stage0-frontend-profile-card/](https://jaimzh.github.io/HNG-stage0-frontend-profile-card/)
+
+
 
   
 
