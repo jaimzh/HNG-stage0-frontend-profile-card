@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>James - Profile Card</title>
     <link rel="stylesheet" href="style.css" />
-   
   </head>
   <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" data-testid="nav-home">Home</a></li>
+          <li><a href="about.html" data-testid="nav-about">About</a></li>
+          <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
     <main class="container">
       <article class="profile-card" data-testid="test-profile-card">
-        <img src="assets/Vector.svg"alt="" aria-hidden="true" class="pattern" />
+        <img
+          src="assets/Vector.svg"
+          alt=""
+          aria-hidden="true"
+          class="pattern"
+        />
         <div class="wrapper">
           <header class="profile-header">
             <figure class="profile-avatar-container">
@@ -27,7 +41,8 @@
                 James Henshaw
               </h2>
               <p class="profile-bio" data-testid="test-user-bio">
-                Frontend dev obsessed with clean UI design, smooth animations, and perfect pixels. 
+                Frontend dev obsessed with clean UI design, smooth animations,
+                and perfect pixels.
               </p>
               <p class="profile-time">
                 Current Time (UTC ms):
@@ -69,8 +84,6 @@
                 </a>
               </li>
 
-              
-
               <li>
                 <a
                   href="https://x.com/Jaimz_with_a_Z"
@@ -111,7 +124,6 @@
               <li>Drawing</li>
               <li>Coding</li>
               <li>Making Art</li>
-             
             </ul>
           </section>
           <hr class="separator" />
@@ -121,8 +133,7 @@
               <li>The word "dislikes"</li>
               <li>Flying roaches</li>
               <li>Slow wi-fi</li>
-             
-            </ul> 
+            </ul>
           </section>
         </div>
       </article>
