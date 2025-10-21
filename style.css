@@ -1,5 +1,4 @@
- @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
 *,
 *::before,
@@ -27,17 +26,16 @@
   position: sticky;
   top: 0;
   max-width: 386px;
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.943);
   padding: 0.75rem 1.5rem;
   z-index: 10;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
 }
 
 .navbar {
   display: flex;
   justify-content: center;
-  
 }
 
 .nav-list {
@@ -46,8 +44,6 @@
   list-style: none;
   padding: 0;
   margin: 0;
- 
- 
 }
 
 .nav-list a {
@@ -63,16 +59,28 @@
 .nav-list a:focus-visible {
   background: rgb(39, 39, 39);
   color: var(--icon-color);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transform: translateY(-1px);
   outline: none;
 }
 
+.nav-list a.active {
+  background: black;
+  color: var(--icon-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
 
+.page-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-
-
-
+.page-section.active {
+  display: block;
+  opacity: 1;
+}
 
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -258,7 +266,6 @@ body {
   transform: translateY(-2px);
 }
 
-
 @media (min-width: 640px) {
   .pattern {
     bottom: 48%;
@@ -285,4 +292,118 @@ body {
   .profile-name {
     font-size: 1.5rem;
   }
+}
+
+/* About Page Styling */
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  color: white;
+  z-index: 3;
+  position: relative;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.about-description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.pattern-about {
+  bottom: 400px;
+}
+
+@media (max-width: 481px) {
+  .pattern-about {
+    bottom: 450px;
+  }
+}
+
+@media (max-width: 386px) {
+  .pattern-about {
+    bottom: 540px;
+  }
+}
+
+/* Contact Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgb(205, 205, 205);
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.875rem;
+  min-height: 1em; 
+}
+
+.success-message {
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.contact-form button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-form button:hover {
+  background-color: rgb(42, 42, 42);
+}
+
+.pattern-contact {
+  bottom: 560px;
 }

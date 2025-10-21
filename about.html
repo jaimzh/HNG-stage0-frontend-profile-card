@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James - About Me</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container" data-testid="test-about-page">
+      <article class="profile-card">
+        <img
+          src="assets/Vector.svg"
+          alt=""
+          aria-hidden="true"
+          class="pattern pattern-about"
+        />
+        <div class="wrapper">
+          <header class="about-header">
+            <h2 class="about-title">About Me</h2>
+            <p class="about-description" data-testid="test-about-bio">
+              Hey! I'm James Henshaw, i was bitten by a radioactive spider but i decided that lifestyle wasn't for me, now i try to code and make animations every now and then. I'm not there yet but i'm hoping someday i'll be competent enough in my skills to build or create anything i can think of but for now i have so much to learn :) 
+            </p>
+          </header>
+
+          <hr class="separator" />
+
+          <section data-testid="test-about-goals">
+            <h3 class="section-header">Goals in This Program</h3>
+            <p>
+              My main goals are to sharpen my full-stack skills, master frontend
+              development patterns, collaborate with others and create impactful projects I can be proud
+              of.
+            </p>
+          </section>
+
+          <hr class="separator" />
+
+          <section data-testid="test-about-confidence">
+            <h3 class="section-header">Areas of Low Confidence</h3>
+            <p>
+              I I need to improve in backend integrations, state management and more complex
+              database/System design.
+            </p>
+          </section>
+
+          <hr class="separator" />
+
+          <section data-testid="test-about-future-note">
+            <h3 class="section-header">Note to Future Self</h3>
+            <p>
+                You're gonna have good days and you're gonna have bad days but just remember: aim to be 1% better every day.  It's "you vs you" after all or in this case "me vs you" lol
+            
+            </p>
+          </section>
+
+          <hr class="separator" />
+
+          <section data-testid="test-about-extra">
+            <h3 class="section-header">Extra Thoughts</h3>
+            <p>
+                "I have no enemies"
+            </p>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
