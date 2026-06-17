@@ -46,8 +46,10 @@ body {
 .site-header {
   position: fixed;
   top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 1rem;
+  right: 1rem;
+  transform: none;
+  width: auto;
   z-index: 100;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
@@ -65,7 +67,7 @@ body {
 
 .nav-list {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.125rem;
   list-style: none;
 }
 
@@ -73,8 +75,8 @@ body {
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 0.875rem;
-  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 8px;
   transition: all 0.2s ease;
 }
@@ -93,8 +95,8 @@ body {
 
 /* ─── Sections ─── */
 .section {
-  padding: 4rem 1.5rem;
-  max-width: 900px;
+  padding: 4rem 1.25rem;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -126,14 +128,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 1.5rem 3rem;
+  padding: 5rem 1rem 2rem;
   /* background-color: red; */
 }
 
 .hero-card {
   background: var(--card-bg);
   border-radius: var(--radius-md);
-  max-width: 700px;
+  max-width: 100%;
   min-height: 400px;
   width: 100%;
   border: 2px solid var(--border);
@@ -148,14 +150,14 @@ body {
   object-fit: cover;
   object-position: center;
   position: absolute;
-  margin-bottom: 2rem;
+   bottom: 170px;
   z-index: 0;
   pointer-events: none;
   /* opacity: 0.08; */
 }
 
 .hero-wrapper {
-  padding: 3rem 2.5rem;
+  padding: 2rem 1.25rem;
   position: relative;
   z-index: 3;
 }
@@ -164,9 +166,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   text-align: center;
-  gap: 3rem;
+  gap: 1.5rem;
   color: var(--text-primary);
   z-index: 3;
   position: relative;
@@ -175,6 +177,7 @@ body {
 .hero-body {
   display: flex;
   flex-direction: column;
+
   gap: 1.25rem;
   flex: 1;
   min-width: 0;
@@ -183,7 +186,9 @@ body {
 .hero-info {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
+  justify-content: center;
+  /* background-color:red ; */
   gap: 0.4rem;
 }
 
@@ -192,8 +197,8 @@ body {
 }
 
 .hero-avatar {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   padding: 0.4rem;
   border-radius: 50%;
   object-fit: cover;
@@ -201,7 +206,7 @@ body {
 }
 
 .hero-name {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--bg);
@@ -320,44 +325,11 @@ body {
   line-height: 1.5;
 }
 
-@media (min-width: 640px) {
-  .hero-card {
-    max-width: 750px;
-  }
-
-  .hero-pattern {
-    bottom: 170px;
-    scale: 1.5;
-  }
-
-  .hero-avatar {
-    width: 230px;
-    height: 230px;
-  }
-
-  .hero-header {
-    flex-direction: row;
-    text-align: left;
-    align-items: center;
-  }
-
-  .hero-actions {
-    justify-content: flex-start;
-  }
-
-  .card-socials {
-    justify-content: flex-start;
-  }
-
-  .card-facts {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 /* ─── Buttons ─── */
 .hero-actions {
   display: flex;
   gap: 0.75rem;
+  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 0;
 }
@@ -461,8 +433,8 @@ body {
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
 }
 
@@ -508,25 +480,39 @@ body {
   color: var(--accent);
 }
 
-.project-image {
-  width: 100%;
-  height: 200px;
-  background: #f0f0f0;
-  border-bottom: 1px solid var(--border);
+.project-image-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  position: relative;
+}
+
+.project-card:hover .project-image-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.project-image {
+  min-height: 0;
+  overflow: hidden;
+  border-top: 1px solid transparent;
+  transition: border-color 0.4s ease;
+}
+
+.project-card:hover .project-image {
+  border-top-color: var(--border);
 }
 
 .project-image img {
   width: 100%;
-  height: 100%;
+  height: 300px;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.3s ease;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .project-content {
@@ -690,67 +676,74 @@ body {
   transition-delay: 400ms;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 640px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+/* ─── Responsive & Media Queries ─── */
 
+/* Desktop / Tablet screens */
+@media (min-width: 640px) {
   .section {
-    padding: 4rem 1.25rem;
+    padding: 4rem 1.5rem;
   }
 
   .site-header {
-    left: 1rem;
-    right: 1rem;
-    transform: none;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
     width: auto;
   }
 
   .nav-list {
-    gap: 0.125rem;
+    gap: 0.25rem;
   }
 
   .nav-list a {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.7rem;
+    font-size: 0.875rem;
+    padding: 0.4rem 0.9rem;
   }
 
   .hero {
-    padding: 5rem 1rem 2rem;
+    padding: 5rem 1.5rem 3rem;
   }
 
   .hero-wrapper {
-    padding: 2rem 1.25rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .hero-name {
-    font-size: 1.5rem;
-  }
-
-  .hero-avatar {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* ─── Large screens ─── */
-@media (min-width: 1200px) {
-  .section {
-    max-width: 1100px;
-  }
-
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem 2.5rem;
   }
 
   .hero-card {
-    max-width: 850px;
+    max-width: 752px;
+  }
+
+  .hero-info{
+    align-items: start;
+  }
+  .hero-pattern {
+    bottom: 240px;
+    scale: 1.5;
+  }
+
+  .hero-avatar {
+    width: 230px;
+    height: 230px;
   }
 
   .hero-name {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .hero-header {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .card-socials {
+    justify-content: flex-end;
+  }
+
+  .card-facts {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

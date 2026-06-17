@@ -59,9 +59,6 @@ async function renderProjects() {
 
       const cardHtml = `
         <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="project-card" id="project-${project.id}">
-          <div class="project-image">
-            ${imageHtml}
-          </div>
           <div class="project-content">
             <div class="project-card-header">
               <h3 class="project-name">${project.name}</h3>
@@ -73,6 +70,11 @@ async function renderProjects() {
             <p class="project-desc">${project.description}</p>
             <div class="project-tags">
               ${tagsHtml}
+            </div>
+          </div>
+          <div class="project-image-wrapper">
+            <div class="project-image">
+              ${imageHtml}
             </div>
           </div>
         </a>
