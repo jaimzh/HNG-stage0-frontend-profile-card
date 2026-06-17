@@ -20,39 +20,162 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach((section) => navObserver.observe(section));
 
-// ─── Fade-in on scroll ───
-const fadeTargets = document.querySelectorAll(".fade-in, .fade-in-children");
+// ─── GSAP ScrollTrigger Animations ───
+gsap.registerPlugin(ScrollTrigger);
 
-const fadeObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        fadeObserver.unobserve(entry.target);
-      }
-    });
+// Hero card — animate on page load (no scroll trigger needed, it's above the fold)
+gsap.from(".hero-card", {
+  y: 60,
+  opacity: 0,
+  duration: 1,
+  ease: "power3.out",
+  delay: 0.2,
+});
+
+// Hero avatar
+gsap.from(".hero-avatar-wrap", {
+  scale: 0.8,
+  opacity: 0,
+  duration: 0.8,
+  ease: "back.out(1.7)",
+  delay: 0.5,
+});
+
+// Hero body content (name, bio, buttons)
+gsap.from(".hero-body > *", {
+  y: 30,
+  opacity: 0,
+  duration: 0.7,
+  stagger: 0.15,
+  ease: "power2.out",
+  delay: 0.7,
+});
+
+// About section
+gsap.from(".card-about", {
+  y: 30,
+  opacity: 0,
+  duration: 0.8,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".card-about",
+    start: "top 85%",
+    toggleActions: "play none none none",
   },
-  { threshold: 0.15 }
-);
+});
 
-fadeTargets.forEach((el) => fadeObserver.observe(el));
+// Dividers — scale in from center
+gsap.utils.toArray(".divider").forEach((divider) => {
+  gsap.from(divider, {
+    scaleX: 0,
+    duration: 0.8,
+    ease: "power2.inOut",
+    scrollTrigger: {
+      trigger: divider,
+      start: "top 90%",
+      toggleActions: "play none none none",
+    },
+  });
+});
+
+// Section headings & descriptions
+gsap.utils.toArray(".section-heading").forEach((heading) => {
+  gsap.from(heading, {
+    x: -40,
+    opacity: 0,
+    duration: 0.7,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: heading,
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+  });
+});
+
+gsap.utils.toArray(".section-info").forEach((info) => {
+  gsap.from(info, {
+    x: -30,
+    opacity: 0,
+    duration: 0.6,
+    delay: 0.15,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: info,
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+  });
+});
+
+// Tech stack items — staggered pop-in using batch for reliability
+// Hide immediately (not at trigger time) so there's no flash of the
+// fully-visible list before it snaps back and replays.
+gsap.set(".tech-list > li", { y: 25, opacity: 0, scale: 0.9 });
+
+ScrollTrigger.batch(".tech-list > li", {
+  onEnter: (batch) =>
+    gsap.to(batch, {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      duration: 0.7,
+      stagger: 0.08,
+      ease: "back.out(1.4)",
+      overwrite: false,
+      clearProps: "transform",
+    }),
+  trigger: ".tech-list",
+  start: "top 85%",
+  once: true,
+});
+
+// Project cards — animated after they're dynamically injected
+// (handled in renderProjects callback below)
+
+// Footer socials
+ScrollTrigger.batch(".footer-socials li", {
+  onEnter: (batch) =>
+    gsap.from(batch, {
+      y: 20,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out",
+    }),
+  start: "top 90%",
+  once: true,
+});
+
+gsap.from(".footer-text", {
+  y: 15,
+  opacity: 0,
+  duration: 0.5,
+  delay: 0.5,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: ".site-footer",
+    start: "top 90%",
+    once: true,
+  },
+});
 
 // ─── Fetch and render projects ───
 async function renderProjects() {
-  const container = document.getElementById('projects-container');
+  const container = document.getElementById("projects-container");
   if (!container) return;
 
   try {
-    const response = await fetch('projects.json');
-    if (!response.ok) throw new Error('Failed to fetch projects');
+    const response = await fetch("projects.json");
+    if (!response.ok) throw new Error("Failed to fetch projects");
     const projects = await response.json();
 
     projects.forEach((project) => {
       const tagsHtml = (project.tags || [])
         .map((tag) => `<span class="project-tag">${tag}</span>`)
-        .join('');
+        .join("");
 
-      let imageHtml = '<!-- Placeholder -->';
+      let imageHtml = "<!-- Placeholder -->";
       if (project.previewImage) {
         imageHtml = `<img src="${project.previewImage}" alt="${project.name} Preview" loading="lazy" />`;
       }
@@ -79,27 +202,42 @@ async function renderProjects() {
           </div>
         </a>
       `;
-      container.insertAdjacentHTML('beforeend', cardHtml);
+      container.insertAdjacentHTML("beforeend", cardHtml);
+    });
+
+    // Animate project cards after injection using batch for reliability
+    // Pre-hide cards immediately (not at trigger time) to prevent flash
+    gsap.set(".project-card", { y: 50, opacity: 0 });
+    
+    ScrollTrigger.refresh();
+    ScrollTrigger.batch(".project-card", {
+      onEnter: (batch) =>
+        gsap.to(batch, {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: "power2.out",
+          overwrite: false,
+          clearProps: "transform",
+        }),
+      start: "top 80%",
+      once: true,
     });
   } catch (error) {
-    console.error('Error loading projects:', error);
-    container.innerHTML = '<p style="color: var(--text-muted);">Failed to load projects.</p>';
+    console.error("Error loading projects:", error);
+    container.innerHTML =
+      '<p style="color: var(--text-muted);">Failed to load projects.</p>';
   }
 }
 
-document.addEventListener('DOMContentLoaded', renderProjects);
+document.addEventListener("DOMContentLoaded", renderProjects);
 
 // ─── GSAP Hero Name Text Cycling Animation ───
 (function () {
   gsap.registerPlugin(TextPlugin);
 
-  const names = [
-    "James Henshaw",
-    "Jaimz H",
-    "Jaimz with a Z",
-    "Jaimz",
-    "Him",
-  ];
+  const names = ["James Henshaw", "Jaimz H", "Jaimz with a Z", "Jaimz", "Him"];
 
   const textEl = document.getElementById("hero-name-text");
   const cursorEl = document.querySelector(".hero-name-cursor");
@@ -124,7 +262,7 @@ document.addEventListener('DOMContentLoaded', renderProjects);
           el.textContent = currentText.substring(0, i);
         },
         null,
-        i === currentText.length ? 0 : `+=${charDelay}`
+        i === currentText.length ? 0 : `+=${charDelay}`,
       );
     }
   }
@@ -159,4 +297,3 @@ document.addEventListener('DOMContentLoaded', renderProjects);
   // Start the first cycle after 3 seconds
   gsap.delayedCall(3, cycleNames);
 })();
-

@@ -46,9 +46,9 @@ body {
 .site-header {
   position: fixed;
   top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  transform: none;
+   left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   width: auto;
   z-index: 100;
   background: rgba(255, 255, 255, 0.85);
@@ -467,7 +467,7 @@ body {
   background: var(--card-bg);
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  transition: all 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -616,7 +616,7 @@ body {
   font-weight: 500;
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: default;
 }
 
@@ -654,52 +654,7 @@ body {
   color: var(--text-muted);
 }
 
-/* ─── Scroll Animations ─── */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* stagger children */
-.fade-in-children > * {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-}
-
-.fade-in-children.visible > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-in-children.visible > *:nth-child(1) {
-  transition-delay: 0ms;
-}
-.fade-in-children.visible > *:nth-child(2) {
-  transition-delay: 80ms;
-}
-.fade-in-children.visible > *:nth-child(3) {
-  transition-delay: 160ms;
-}
-.fade-in-children.visible > *:nth-child(4) {
-  transition-delay: 240ms;
-}
-.fade-in-children.visible > *:nth-child(5) {
-  transition-delay: 320ms;
-}
-.fade-in-children.visible > *:nth-child(6) {
-  transition-delay: 400ms;
-}
+/* ─── Scroll Animations (handled by GSAP ScrollTrigger) ───*/
 
 /* ─── Responsive & Media Queries ─── */
 
