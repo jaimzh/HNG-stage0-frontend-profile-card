@@ -88,3 +88,75 @@ async function renderProjects() {
 }
 
 document.addEventListener('DOMContentLoaded', renderProjects);
+
+// ─── GSAP Hero Name Text Cycling Animation ───
+(function () {
+  gsap.registerPlugin(TextPlugin);
+
+  const names = [
+    "James Henshaw",
+    "Jaimz H",
+    "Jaimz with a Z",
+    "Jaimz",
+    "Him",
+  ];
+
+  const textEl = document.getElementById("hero-name-text");
+  const cursorEl = document.querySelector(".hero-name-cursor");
+  if (!textEl) return;
+
+  let currentIndex = 0;
+
+  // Backspace one character at a time from the end
+  function backspaceText(el, onComplete) {
+    const currentText = el.textContent;
+    if (currentText.length === 0) {
+      onComplete();
+      return;
+    }
+
+    const charDelay = 0.6 / currentText.length; // total ~0.6s for full delete
+    const tl = gsap.timeline({ onComplete });
+
+    for (let i = currentText.length; i >= 0; i--) {
+      tl.call(
+        () => {
+          el.textContent = currentText.substring(0, i);
+        },
+        null,
+        i === currentText.length ? 0 : `+=${charDelay}`
+      );
+    }
+  }
+
+  function cycleNames() {
+    const nextIndex = (currentIndex + 1) % names.length;
+    const nextName = names[nextIndex];
+
+    // Pause cursor blinking during typing
+    gsap.set(cursorEl, { opacity: 1, animation: "none" });
+
+    // Step 1: Backspace from end
+    backspaceText(textEl, () => {
+      // Step 2: Brief pause, then type forward
+      gsap.to(textEl, {
+        delay: 0.3,
+        duration: 0.7,
+        text: { value: nextName, delimiter: "" },
+        ease: "none",
+        onComplete: () => {
+          // Resume cursor blinking
+          gsap.set(cursorEl, {
+            animation: "cursorBlink 0.75s step-end infinite",
+          });
+          currentIndex = nextIndex;
+          gsap.delayedCall(3, cycleNames);
+        },
+      });
+    });
+  }
+
+  // Start the first cycle after 3 seconds
+  gsap.delayedCall(3, cycleNames);
+})();
+
