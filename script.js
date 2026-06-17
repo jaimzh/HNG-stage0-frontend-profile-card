@@ -160,107 +160,70 @@ gsap.from(".footer-text", {
   },
 });
 
-// ─── Fetch and render projects with pagination ───
+// ─── Fetch and render projects ───
 async function renderProjects() {
   const container = document.getElementById("projects-container");
-  const dotsContainer = document.getElementById("carousel-dots");
   if (!container) return;
 
   try {
     const response = await fetch("projects.json");
     if (!response.ok) throw new Error("Failed to fetch projects");
     const projects = await response.json();
-    const pageSize = 5;
-    const pageCount = Math.ceil(projects.length / pageSize);
 
-    function displayPage(page) {
-      container.innerHTML = ""; // Clear current projects
-      const start = page * pageSize;
-      const paginatedProjects = projects.slice(start, start + pageSize);
+    projects.forEach((project) => {
+      const tagsHtml = (project.tags || [])
+        .map((tag) => `<span class="project-tag">${tag}</span>`)
+        .join("");
 
-      paginatedProjects.forEach((project) => {
-        const tagsHtml = (project.tags || [])
-          .map((tag) => `<span class="project-tag">${tag}</span>`)
-          .join("");
-
-        let imageHtml = "<!-- Placeholder -->";
-        if (project.previewImage) {
-          imageHtml = `<img src="${project.previewImage}" alt="${project.name} Preview" loading="lazy" />`;
-        }
-
-        const cardHtml = `
-          <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="project-card" id="project-${project.id}">
-            <div class="project-content">
-              <div class="project-card-header">
-                <h3 class="project-name">${project.name}</h3>
-                <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </div>
-              <p class="project-desc">${project.description}</p>
-              <div class="project-tags">
-                ${tagsHtml}
-              </div>
-            </div>
-            <div class="project-image-wrapper">
-              <div class="project-image">
-                ${imageHtml}
-              </div>
-            </div>
-          </a>
-        `;
-        container.insertAdjacentHTML("beforeend", cardHtml);
-      });
-
-      // Update page counter and dots
-      const pageCounter = dotsContainer.querySelector(".page-counter");
-      if (pageCounter) {
-        pageCounter.textContent = `${page + 1} of ${pageCount}`;
+      let imageHtml = "<!-- Placeholder -->";
+      if (project.previewImage) {
+        imageHtml = `<img src="${project.previewImage}" alt="${project.name} Preview" loading="lazy" />`;
       }
 
-      document.querySelectorAll(".dot").forEach((dot, index) => {
-        dot.classList.toggle("active", index === page);
-      });
+      const cardHtml = `
+        <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="project-card" id="project-${project.id}">
+          <div class="project-content">
+            <div class="project-card-header">
+              <h3 class="project-name">${project.name}</h3>
+              <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </div>
+            <p class="project-desc">${project.description}</p>
+            <div class="project-tags">
+              ${tagsHtml}
+            </div>
+          </div>
+          <div class="project-image-wrapper">
+            <div class="project-image">
+              ${imageHtml}
+            </div>
+          </div>
+        </a>
+      `;
+      container.insertAdjacentHTML("beforeend", cardHtml);
+    });
 
-      // Pre-hide cards and animate
-      gsap.set(".project-card", { y: 50, opacity: 0 });
-      ScrollTrigger.refresh();
-      ScrollTrigger.batch(".project-card", {
-        onEnter: (batch) =>
-          gsap.to(batch, {
-            y: 0,
-            opacity: 1,
-            duration: 0.9,
-            stagger: 0.12,
-            ease: "power2.out",
-            overwrite: false,
-            clearProps: "transform",
-          }),
-        start: "top 80%",
-        once: true,
-      });
-    }
+    // Animate project cards after injection using batch for reliability
+    // Pre-hide cards immediately (not at trigger time) to prevent flash
+    gsap.set(".project-card", { y: 50, opacity: 0 });
 
-    // Create dots and page counter
-    const dotsWrapper = document.createElement("div");
-    dotsWrapper.className = "dots-wrapper";
-
-    for (let i = 0; i < pageCount; i++) {
-      const dot = document.createElement("div");
-      dot.className = "dot";
-      dot.addEventListener("click", () => displayPage(i));
-      dotsWrapper.appendChild(dot);
-    }
-
-    dotsContainer.appendChild(dotsWrapper);
-
-    const pageCounter = document.createElement("span");
-    pageCounter.className = "page-counter";
-    pageCounter.textContent = `1 of ${pageCount}`;
-    dotsContainer.appendChild(pageCounter);
-
-    displayPage(0); // Show first page
+    ScrollTrigger.refresh();
+    ScrollTrigger.batch(".project-card", {
+      onEnter: (batch) =>
+        gsap.to(batch, {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: "power2.out",
+          overwrite: false,
+          clearProps: "transform",
+        }),
+      start: "top 80%",
+      once: true,
+    });
   } catch (error) {
     console.error("Error loading projects:", error);
     container.innerHTML =
