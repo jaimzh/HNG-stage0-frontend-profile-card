@@ -30,5 +30,29 @@
     "url": "https://simplr-landing-page.vercel.app/",
     "previewImage": "assets/image copy 3.png",
     "tags": ["JavaScript", "Chrome API", "HTML/CSS"]
-  }
+  }, 
+  {
+  "id": "pitch-pack",
+  "name": "Pitch Pack",
+  "description": "An AI-powered outreach suite for content creators that generates tailored emails, DMs, and campaign strategies based on creator profiles.",
+  "url": "https://pitch-pack.vercel.app/",
+  "previewImage": "assets/image copy 4.png",
+  "tags": ["Next.js", "TypeScript", "Gemini API", "Zustand"]
+}, 
+{
+  "id": "autosort",
+  "name": "AutoSort",
+  "description": "A smart file organization utility featuring a Python-powered rule engine and a live-pulse Flutter dashboard to automate digital cleanup.",
+  "url": "https://auto-sort-landing.vercel.app/",
+  "previewImage": "assets/image copy 5.png",
+  "tags": ["Python", "FastAPI", "Flutter"]
+}, 
+{
+  "id": "orbit-shortcut-tool",
+  "name": "Orbit",
+  "description": "A lightweight floating radial keyboard shortcut launcher for Windows. JSON configurable. Always on top.",
+  "url": "https://github.com/jaimzh/orbit-shortcut-tool",
+   "previewImage": "assets/image copy 6.png",
+  "tags": ["Dart", "Flutter", "C++", "Windows"]
+}
 ]
