@@ -46,9 +46,9 @@ body {
 .site-header {
   position: fixed;
   top: 1rem;
-   left: 50%;
-    right: auto;
-    transform: translateX(-50%);
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
   width: auto;
   z-index: 100;
   background: rgba(255, 255, 255, 0.85);
@@ -150,7 +150,7 @@ body {
   object-fit: cover;
   object-position: center;
   position: absolute;
-   bottom: 170px;
+  bottom: 170px;
   z-index: 0;
   pointer-events: none;
   /* opacity: 0.08; */
@@ -233,8 +233,13 @@ body {
 }
 
 @keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero-role {
@@ -467,7 +472,9 @@ body {
   background: var(--card-bg);
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -596,6 +603,54 @@ body {
   font-weight: 500;
 }
 
+/* Pagination Controls */
+.carousel-dots {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-counter {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-align: right;
+}
+
+.dots-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dot.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
 /* ─── Tech Stack ─── */
 .tech-list {
   display: flex;
@@ -616,7 +671,9 @@ body {
   font-weight: 500;
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   cursor: default;
 }
 
@@ -692,7 +749,7 @@ body {
     max-width: 752px;
   }
 
-  .hero-info{
+  .hero-info {
     align-items: start;
   }
   .hero-pattern {
