@@ -208,7 +208,7 @@ async function renderProjects() {
     // Animate project cards after injection using batch for reliability
     // Pre-hide cards immediately (not at trigger time) to prevent flash
     gsap.set(".project-card", { y: 50, opacity: 0 });
-    
+
     ScrollTrigger.refresh();
     ScrollTrigger.batch(".project-card", {
       onEnter: (batch) =>
