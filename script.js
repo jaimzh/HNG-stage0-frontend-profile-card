@@ -23,35 +23,34 @@ sections.forEach((section) => navObserver.observe(section));
 // ─── GSAP ScrollTrigger Animations ───
 gsap.registerPlugin(ScrollTrigger);
 
-// Hero card — animate on page load (no scroll trigger needed, it's above the fold)
-gsap.from(".hero-card", {
-  y: 60,
-  opacity: 0,
-  duration: 1,
-  ease: "power3.out",
-  delay: 0.2,
-});
 
-// Hero avatar
-gsap.from(".hero-avatar-wrap", {
-  scale: 0.8,
-  opacity: 0,
-  duration: 0.8,
-  ease: "back.out(1.7)",
-  delay: 0.5,
-});
+gsap.fromTo(
+  ".hero-card",
+  { y: 60, opacity: 0 },
+  { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.2 },
+);
 
-// Hero body content (name, bio, buttons)
-gsap.from(".hero-body > *", {
-  y: 30,
-  opacity: 0,
-  duration: 0.7,
-  stagger: 0.15,
-  ease: "power2.out",
-  delay: 0.7,
-});
 
-// About section
+gsap.fromTo(
+  ".hero-avatar-wrap",
+  { scale: 0.8, opacity: 0 },
+  { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)", delay: 0.5 },
+);
+
+gsap.fromTo(
+  ".hero-body > *",
+  { y: 30, opacity: 0 },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 0.7,
+    stagger: 0.15,
+    ease: "power2.out",
+    delay: 0.7,
+  },
+);
+
+
 gsap.from(".card-about", {
   y: 30,
   opacity: 0,
@@ -64,7 +63,7 @@ gsap.from(".card-about", {
   },
 });
 
-// Dividers — scale in from center
+
 gsap.utils.toArray(".divider").forEach((divider) => {
   gsap.from(divider, {
     scaleX: 0,
@@ -108,9 +107,7 @@ gsap.utils.toArray(".section-info").forEach((info) => {
   });
 });
 
-// Tech stack items — staggered pop-in using batch for reliability
-// Hide immediately (not at trigger time) so there's no flash of the
-// fully-visible list before it snaps back and replays.
+
 gsap.set(".tech-list > li", { y: 25, opacity: 0, scale: 0.9 });
 
 ScrollTrigger.batch(".tech-list > li", {
@@ -130,10 +127,7 @@ ScrollTrigger.batch(".tech-list > li", {
   once: true,
 });
 
-// Project cards — animated after they're dynamically injected
-// (handled in renderProjects callback below)
 
-// Footer socials
 ScrollTrigger.batch(".footer-socials li", {
   onEnter: (batch) =>
     gsap.from(batch, {
@@ -160,7 +154,7 @@ gsap.from(".footer-text", {
   },
 });
 
-// ─── Fetch and render projects with pagination ───
+// Fetch and render projects with pagination
 async function renderProjects() {
   const container = document.getElementById("projects-container");
   const dotsContainer = document.getElementById("carousel-dots");
@@ -213,7 +207,7 @@ async function renderProjects() {
         container.insertAdjacentHTML("beforeend", cardHtml);
       });
 
-      // Update page counter and dots
+    
       const pageCounter = dotsContainer.querySelector(".page-counter");
       if (pageCounter) {
         pageCounter.textContent = `${page + 1} of ${pageCount}`;
@@ -270,11 +264,11 @@ async function renderProjects() {
 
 document.addEventListener("DOMContentLoaded", renderProjects);
 
-// ─── GSAP Hero Name Text Cycling Animation ───
+// GSAP Hero Name Text Cycling Animation 
 (function () {
   gsap.registerPlugin(TextPlugin);
 
-  const names = ["James Henshaw", "Jaimz H", "Jaimz with a Z", "Jaimz", "Him"];
+  const names = ["James Henshaw", "Jaimz H", "Jaimz with a Z", "Jaimz is a Dev", "Him"];
 
   const textEl = document.getElementById("hero-name-text");
   const cursorEl = document.querySelector(".hero-name-cursor");

@@ -1,12 +1,12 @@
 [
   {
-    "id": "code-canvas",
-    "name": "Code Canvas",
-    "description": "A collaborative code and drawing canvas where you can write code, sketch ideas, and share your workspace in real-time.",
-    "url": "https://code-canvas-tldraw.vercel.app/",
-    "previewImage": "assets/image.png",
-    "tags": ["Next.js", "TypeScript", "Tldraw"]
-  },
+  "id": "code-canvas",
+  "name": "Code Canvas",
+  "description": "A fullstack infinite, spatial whiteboard for non-linear thinkers, featuring nine custom interactive tools including live code editors, Mermaid diagrams, voice notes, and sandboxed HTML environments.",
+  "url": "https://code-canvas-tldraw.vercel.app/",
+  "previewImage": "assets/image.png",
+  "tags": ["Next.js", "TypeScript", "Tldraw", "MongoDB", "Monaco Editor"]
+},
   {
     "id": "caleb-caz",
     "name": "Caleb Caz Portfolio",
@@ -18,15 +18,15 @@
   {
     "id": "lnnk",
     "name": "Lnnk",
-    "description": "A clean URL shortening service that lets you create short, memorable links and track click analytics.",
+    "description": "A modern, minimalist URL shortener featuring instant redirection, automated QR code generation, and smooth interactive UI transitions powered by Framer Motion.",
     "url": "https://lnnk.click/",
     "previewImage": "assets/image copy 2.png",
-    "tags": ["JavaScript", "Node.js", "API"]
+    "tags": ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "Zod"]
   },
   {
     "id": "simplr",
     "name": "Simplr",
-    "description": "A Chrome extension built to simplify your browsing experience with productivity tools and a clean interface.",
+    "description": "Simplr is a Chrome extension that provides instant word definitions and AI-powered text simplification directly on any webpage without leaving your current tab.. ",
     "url": "https://simplr-landing-page.vercel.app/",
     "previewImage": "assets/image copy 3.png",
     "tags": ["JavaScript", "Chrome API", "HTML/CSS"]
@@ -53,6 +53,14 @@
   "description": "A lightweight floating radial keyboard shortcut launcher for Windows. JSON configurable. Always on top.",
   "url": "https://github.com/jaimzh/orbit-shortcut-tool",
    "previewImage": "assets/image copy 6.png",
-  "tags": ["Dart", "Flutter", "C++", "Windows"]
-}
+  "tags": ["Dart", "Flutter", "Windows"]
+}, 
+{
+    "id": "diff-studio",
+    "name": "Diff Studio",
+    "description": "A private, ephemeral, client-side code comparison tool featuring side-by-side Monaco editors, visual diffing, and integrated local-first AI analysis.",
+    "url": "https://diff-studio.vercel.app/",
+    "previewImage": "assets/image copy 7.png",
+    "tags": ["React", "TypeScript", "Vite", "Monaco Editor", "Zustand"]
+  }
 ]

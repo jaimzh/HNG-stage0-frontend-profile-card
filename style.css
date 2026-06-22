@@ -458,6 +458,46 @@ body {
   line-height: 1;
 }
 
+
+/* ─── Tech Stack ─── */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+.tech-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.tech-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.tech-list li:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+
 /* ─── Projects ─── */
 #projects {
 }
@@ -651,55 +691,21 @@ body {
   transform: scale(1.2);
 }
 
-/* ─── Tech Stack ─── */
-.tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  list-style: none;
-}
 
-.tech-list li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-  cursor: default;
-}
-
-.tech-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.tech-list li:hover {
-  border-color: var(--accent);
-  /* background: var(--accent); */
-  /* color: #fff; */
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
 
 /* ─── Footer ─── */
 .site-footer {
   text-align: center;
   padding: 3rem 1.5rem;
+  /* padding: 4rem 1.25rem; */
   border-top: 1px solid var(--border);
 }
 
 .footer-socials {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
   gap: 0.75rem;
   justify-content: center;
   list-style: none;
@@ -711,7 +717,7 @@ body {
   color: var(--text-muted);
 }
 
-/* ─── Scroll Animations (handled by GSAP ScrollTrigger) ───*/
+
 
 /* ─── Responsive & Media Queries ─── */
 
@@ -783,5 +789,10 @@ body {
 
   .card-facts {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .footer-socials {
+    flex-direction: row;
   }
 }
