@@ -33,19 +33,27 @@
   }, 
   {
   "id": "pitch-pack",
-  "name": "Pitch Pack",
+  "name": "PitchPack",
   "description": "An AI-powered outreach suite for content creators that generates tailored emails, DMs, and campaign strategies based on creator profiles.",
   "url": "https://pitch-pack.vercel.app/",
   "previewImage": "assets/image copy 4.png",
   "tags": ["Next.js", "TypeScript", "Gemini API", "Zustand"]
 }, 
+ {
+  "id": "cortex-engine",
+  "name": "Cortex",
+  "description": "A private, context-aware, voice-driven workspace assistant and headless text engine that integrates local-first AI and system tools to manipulate screen text and execute commands.",
+  "url": "https://github.com/jaimzh/cortex-voice-engine",
+  "previewImage": "assets/image copy 8.png",
+  "tags": ["Python", "Whisper AI", "Ollama", "LLM", "Automation"]
+}, 
 {
   "id": "autosort",
   "name": "AutoSort",
-  "description": "A smart file organization utility featuring a Python-powered rule engine and a live-pulse Flutter dashboard to automate digital cleanup.",
+  "description": "A smart file organization utility desktop app featuring a Python-powered rule engine and a live-pulse Flutter dashboard to automate digital cleanup.",
   "url": "https://auto-sort-landing.vercel.app/",
   "previewImage": "assets/image copy 5.png",
-  "tags": ["Python", "FastAPI", "Flutter"]
+  "tags": ["Python", "FastAPI", "Flutter", "Windows"]
 }, 
 {
   "id": "orbit-shortcut-tool",
@@ -63,4 +71,6 @@
     "previewImage": "assets/image copy 7.png",
     "tags": ["React", "TypeScript", "Vite", "Monaco Editor", "Zustand"]
   }
+ 
+
 ]
