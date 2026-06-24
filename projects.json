@@ -64,13 +64,22 @@
   "tags": ["Dart", "Flutter", "Windows"]
 }, 
 {
-    "id": "diff-studio",
+     "id": "diff-studio",
     "name": "Diff Studio",
     "description": "A private, ephemeral, client-side code comparison tool featuring side-by-side Monaco editors, visual diffing, and integrated local-first AI analysis.",
     "url": "https://diff-studio.vercel.app/",
     "previewImage": "assets/image copy 7.png",
     "tags": ["React", "TypeScript", "Vite", "Monaco Editor", "Zustand"]
-  }
+  },
+  
+  {
+  "id": "roadmap-sh-projects",
+  "name": "Roadmap.sh Python Projects",
+  "description": "A collection of all my python fullstack/backend roadmap.sh projects.",
+  "url": "https://github.com/jaimzh/Roadmap.sh-Python-Projects",
+  "previewImage": "assets/image copy 9.png",
+  "tags": ["Python", "Backend", "Roadmap.sh", "Full-Stack"]
+}
  
 
 ]
