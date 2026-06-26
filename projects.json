@@ -35,7 +35,7 @@
   "id": "pitch-pack",
   "name": "PitchPack",
   "description": "An AI-powered outreach suite for content creators that generates tailored emails, DMs, and campaign strategies based on creator profiles.",
-  "url": "https://pitch-pack.vercel.app/",
+  "url": "https://pitchpack.vercel.app/",
   "previewImage": "assets/image copy 4.png",
   "tags": ["Next.js", "TypeScript", "Gemini API", "Zustand"]
 }, 
