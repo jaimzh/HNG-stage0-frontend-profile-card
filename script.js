@@ -2,6 +2,15 @@
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-list a");
 
+
+const glassesAvatarWrap = document.querySelector(".hero-avatar-wrap");
+
+  glassesAvatarWrap.addEventListener("click", () => {
+    glassesAvatarWrap.classList.toggle("glasses-active");
+
+  });
+
+
 const observerOptions = {
   rootMargin: "-40% 0px -55% 0px",
   threshold: 0,
@@ -328,3 +337,6 @@ document.addEventListener("DOMContentLoaded", renderProjects);
   // Start the first cycle after 3 seconds
   gsap.delayedCall(3, cycleNames);
 })();
+
+
+

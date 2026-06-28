@@ -1,0 +1,63 @@
+<svg width="1892" height="1892" viewBox="0 0 1892 1892" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes kf_Glass_1_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(1542px) translateY(1213px) translate(319px, 140px) rotate(0rad) translate(-319px, -140px);
+  }
+  22.8% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(-12px) translateY(-1px) translate(319px, 140px) rotate(0rad) translate(-319px, -140px);
+  }
+  31.9% {
+    transform: translateX(0px) translateY(0px) translate(319px, 140px) rotate(0rad) translate(-319px, -140px);
+  }
+  43.09% {
+    transform: translateX(0px) translateY(0px) translate(319px, 140px) rotate(0rad) translate(-319px, -140px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) translate(319px, 140px) rotate(0rad) translate(-319px, -140px);
+  }
+}
+#Glass_1 {
+  transform-origin: 0 0;
+  animation: kf_Glass_1_transform_0 2.499s linear infinite;
+}
+</style>
+<g id="Frame_4" clip-path="url(#clip0_34_2)">
+<g id="Meeeee_1" transform="translate(-151 -152)">
+</g>
+<g id="Group_4" transform="translate(501 838)">
+<g id="Glass_1" clip-path="url(#clip1_34_2)">
+<g id="Group" transform="translate(19.8035 27.3567) rotate(-0.906732)">
+<path id="Vector" transform="translate(-9.05227e-07 40.0349)" d="M0 28.7804C79.635 -1.35261 154.878 -3.69658 199.458 3.24542" stroke="black" stroke-width="41.78" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" transform="translate(268.038)" d="M0 27.0523C115.21 -14.6387 179.6 3.50833 199.04 6.44233" stroke="black" stroke-width="41.78" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" transform="translate(2.32898 60.0833)" d="M0 26.816C1.539 65.101 5.31499 165.888 118.969 173.479C185.019 177.89 233.629 91.288 203.199 0" stroke="black" stroke-width="41.78" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" transform="translate(258.64 12.5513)" d="M2.27756 19.116C-6.30244 16.782 4.45753 201.54 121.508 184.001C211.308 170.547 231.288 47.047 203.338 0" stroke="black" stroke-width="41.78" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" transform="translate(475.348 5.26733)" d="M0 0C37.62 8.947 95.71 26.473 121.15 30.062" stroke="black" stroke-width="41.78" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" transform="translate(225.848 94.3523)" d="M0 1.91504C0.47 2.34304 28.8099 0.19 31.3099 0" stroke="black" stroke-width="41.78" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_7" transform="translate(9.30102 46.0035)" fill-rule="evenodd" clip-rule="evenodd" d="M3.74297 28.5228C-11.105 50.8798 17.94 190.348 95.927 183.333C167.447 176.9 170.107 166.174 189.317 97.0958C200.347 57.4428 187.147 14.5198 184.347 11.4028C163.467 -11.7912 97.5969 4.82882 15.0489 22.0718" fill="black"/>
+<path id="Vector_8" transform="translate(262.841 7.3111)" fill-rule="evenodd" clip-rule="evenodd" d="M13.1965 25.2782C-32.3035 69.9332 45.4665 259.088 160.517 164.575C196.257 135.213 230.217 39.1992 197.167 14.1522C150.907 -20.9228 70.1665 19.2822 48.3365 27.0812" fill="black"/>
+<path id="Vector_9" transform="translate(20.8948 56.1306)" fill-rule="evenodd" clip-rule="evenodd" d="M0.417239 28.0897C-0.605761 34.2717 -1.30277 58.3587 18.2092 108.332C31.1312 141.429 70.1132 164.763 74.5232 166.488C28.9072 136.968 11.2252 102.355 5.80121 29.4297C5.05721 19.4277 90.5032 3.22368 120.283 0.827675C100.553 -4.37532 22.5142 16.5597 13.7412 18.9347C9.10121 20.1907 4.33425 21.6287 2.80225 23.4037C0.757248 25.7717 1.03424 22.6787 0.417239 28.0897Z" fill="white"/>
+<g id="Group_2" transform="translate(275.226 15.7638)">
+<path id="Vector_10" fill-rule="evenodd" clip-rule="evenodd" d="M0 33.633C3.52 125.337 27.83 163.637 79.39 175.162C50.44 163.122 3.97998 149.932 5.84998 26.471C24.72 13.07 109.35 -1.222 120.17 0.474003C108.04 -2.795 28.95 11.7971 14.74 15.1231C5.77999 17.2211 4.91001 18.78 0.390015 25.338" fill="white"/>
+</g>
+<g id="Group_3" opacity="0.42" transform="translate(33.887 41.0543)">
+<path id="Vector_11" transform="translate(1.1849e-06 44.28)" fill-rule="evenodd" clip-rule="evenodd" d="M0 3.67401C34.127 47.326 52.0309 72.398 109.021 134.971C112.721 139.028 134.151 122.285 136.071 120.78C129.031 114.971 105.351 95.439 53.611 41.897C32.594 20.155 30.973 22.482 11.477 0C9.85299 0.714 7.999 0.8 6.375 1.513C5.872 1.735 6.37495 1.513 0.277954 4.698" fill="white"/>
+<path id="Vector_12" transform="translate(28.1949 37.5104)" fill-rule="evenodd" clip-rule="evenodd" d="M0.0830078 1.16959C63.996 62.8226 60.7161 65.4346 118.646 119.682C120.366 116.183 122.086 112.684 123.806 109.185C72.866 63.2966 74.186 62.3886 25.086 14.2136C4.427 -6.0554 1.503 0.973608 0 2.03361" fill="white"/>
+<path id="Vector_13" transform="translate(256.341 8.03198)" fill-rule="evenodd" clip-rule="evenodd" d="M0.679932 5.38904C7.35993 16.828 53.23 95.329 95.08 141.456C110.98 137.141 111.56 139.242 125.05 128.877C35.7399 34.11 37.36 32.89 12.96 0L0 7.85504" fill="white"/>
+<path id="Vector_14" transform="translate(277.841)" fill-rule="evenodd" clip-rule="evenodd" d="M2.20996 2.29999C9.15996 14.139 61.0699 72.232 107.79 128.611C110.49 125.44 113.2 122.268 115.91 119.097C33.3699 35.782 39.24 30.625 8.65002 0C5.77002 1.256 2.88 2.51201 0 3.76801" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_34_2">
+<rect width="1892" height="1892" fill="white"/>
+</clipPath>
+<clipPath id="clip1_34_2">
+<rect width="638" height="280" fill="white"/>
+</clipPath>
+</defs>
+</svg>
