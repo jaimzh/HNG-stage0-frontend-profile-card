@@ -732,21 +732,55 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.75rem 1.5rem;
+  gap: 0.4rem;
+  padding: 0.45rem;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 50px;
+  border-radius: 999px;
   box-shadow: var(--shadow-sm);
 }
 
+.pagination-btn,
 .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--text-muted);
+  border: 0;
+  font: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.pagination-btn {
+  min-height: 2rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.pagination-btn:hover,
+.pagination-btn:focus-visible {
+  background: #efefef;
+  color: var(--text-primary);
+}
+
+.pagination-btn:disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.pagination-btn:disabled:hover {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--text-muted);
 }
 
 .dot.active {
@@ -754,8 +788,16 @@ body {
   transform: scale(1.2);
 }
 
+.dot:hover,
+.dot:focus-visible {
+  background: var(--text-secondary);
+}
 
-
+.pagination-btn:focus-visible,
+.dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 /* ─── Footer ─── */
 .site-footer {
   text-align: center;

@@ -176,7 +176,10 @@ async function renderProjects() {
     const pageSize = 5;
     const pageCount = Math.ceil(projects.length / pageSize);
 
+    let currentPage = 0;
+
     function displayPage(page) {
+      currentPage = page;
       container.innerHTML = ""; // Clear current projects
       const start = page * pageSize;
       const paginatedProjects = projects.slice(start, start + pageSize);
@@ -219,12 +222,24 @@ async function renderProjects() {
     
       const pageCounter = dotsContainer.querySelector(".page-counter");
       if (pageCounter) {
-        pageCounter.textContent = `${page + 1} of ${pageCount}`;
+        pageCounter.textContent = `Page ${page + 1} of ${pageCount}`;
       }
 
       document.querySelectorAll(".dot").forEach((dot, index) => {
         dot.classList.toggle("active", index === page);
+        dot.setAttribute("aria-current", index === page ? "page" : "false");
       });
+
+      const prevButton = dotsContainer.querySelector(".pagination-prev");
+      const nextButton = dotsContainer.querySelector(".pagination-next");
+
+      if (prevButton) {
+        prevButton.disabled = page === 0;
+      }
+
+      if (nextButton) {
+        nextButton.disabled = page === pageCount - 1;
+      }
 
       // Pre-hide cards and animate
       gsap.set(".project-card", { y: 50, opacity: 0 });
@@ -245,22 +260,46 @@ async function renderProjects() {
       });
     }
 
-    // Create dots and page counter
+    // Create pagination controls and page counter
     const dotsWrapper = document.createElement("div");
     dotsWrapper.className = "dots-wrapper";
+    dotsWrapper.setAttribute("role", "group");
+    dotsWrapper.setAttribute("aria-label", "Project pages");
+
+    const prevButton = document.createElement("button");
+    prevButton.className = "pagination-btn pagination-prev";
+    prevButton.type = "button";
+    prevButton.textContent = "Previous";
+    prevButton.setAttribute("aria-label", "Go to previous project page");
+    prevButton.addEventListener("click", () => {
+      if (currentPage > 0) displayPage(currentPage - 1);
+    });
+    dotsWrapper.appendChild(prevButton);
 
     for (let i = 0; i < pageCount; i++) {
-      const dot = document.createElement("div");
+      const dot = document.createElement("button");
       dot.className = "dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Go to project page ${i + 1}`);
       dot.addEventListener("click", () => displayPage(i));
       dotsWrapper.appendChild(dot);
     }
+
+    const nextButton = document.createElement("button");
+    nextButton.className = "pagination-btn pagination-next";
+    nextButton.type = "button";
+    nextButton.textContent = "Next";
+    nextButton.setAttribute("aria-label", "Go to next project page");
+    nextButton.addEventListener("click", () => {
+      if (currentPage < pageCount - 1) displayPage(currentPage + 1);
+    });
+    dotsWrapper.appendChild(nextButton);
 
     dotsContainer.appendChild(dotsWrapper);
 
     const pageCounter = document.createElement("span");
     pageCounter.className = "page-counter";
-    pageCounter.textContent = `1 of ${pageCount}`;
+    pageCounter.textContent = `Page 1 of ${pageCount}`;
     dotsContainer.appendChild(pageCounter);
 
     displayPage(0); // Show first page
